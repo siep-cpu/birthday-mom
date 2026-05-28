@@ -38,7 +38,13 @@
 
 <div id="screen4" class="screen">
      <h2 id="slideText" class="slideText"></h2>
-    <img id="slideshow" src="photo1.jpg" width="300" class="photoFrame">
+    <img
+  id="slideshow"
+  src="photo1.jpg"
+  width="300"
+  class="photoFrame"
+  onload="console.log('IMAGE LOADED')"
+  onerror="console.log('IMAGE FAILED')">
    
 </div>
 
