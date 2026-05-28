@@ -88,25 +88,21 @@ function startSlideshow() {
     const img = document.getElementById("slideshow");
     const text = document.getElementById("slideText");
 
-    // show first message immediately
-    img.src = photos[photoIndex];
-    text.innerText = slideMessages[photoIndex];
+    let photoIndex = 0;
 
-    const slideInterval = setInterval(() => {
-        photoIndex = (photoIndex + 1) % photos.length;
+    img.src = photos[0];
+    text.innerText = slideMessages[0];
 
-        // 🔥 update message with image
+    setInterval(function () {
+        photoIndex++;
+
+        if (photoIndex >= photos.length) {
+            photoIndex = 0;
+        }
+
         img.src = photos[photoIndex];
         text.innerText = slideMessages[photoIndex];
-
-    }, 5200);
-
-    // after 24 seconds → go to game
-    setTimeout(() => {
-        clearInterval(slideInterval);
-        goToScreen(5);
-        startGame();
-    }, 42000);
+    }, 3000);
 }
 
 let score = 0;
